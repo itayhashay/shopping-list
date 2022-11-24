@@ -1,0 +1,8 @@
+.product-card {
+    display: flex;
+    justify-content: center;
+}
+
+.product-card>* {
+    text-align: left;
+}
