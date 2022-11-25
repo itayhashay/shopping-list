@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Routes, Route } from 'react-router-dom'
-import './App.css';
 import { Container, Typography, Divider } from '@mui/material';
-import List from './components/List';
-import Item from './components/Item';
+import List from './components/List/index';
+import Item from './components/Item/index';
+import './App.css';
 
 class App extends Component {
   state = {

@@ -1,16 +1,18 @@
-import React from 'react';
-import './Item.css';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Card, CardContent, CardActions, Button, CardMedia, Typography, } from '@mui/material';
-
+import './styles.css';
 
 const Item = ({ items }) => {
-
+    const [item, setItem] = useState({});
     const { name } = useParams();
 
-    const item = items.filter(i => i.name.toLowerCase() === name.toLowerCase());
+    useEffect(() => {
+        const itemfound = items.find(i => i.name.toLowerCase() === name.toLowerCase());
+        setItem(itemfound);
+    }, [items, name])
 
-    if (item.length === 0) {
+    if (!item) {
         return (
             <Typography gutterBottom variant="h5" component="div">
                 Theres no {name} in shopping list
@@ -22,18 +24,18 @@ const Item = ({ items }) => {
                 <Card sx={{ maxWidth: 300 }}>
                     <CardMedia
                         component="img"
-                        image={`/images/${item[0].anotherImg}.jpg`}
+                        image={`/images/${item.anotherImg}.jpg`}
                     />
                     <CardContent className='product-card-content'>
                         <Typography gutterBottom variant="h5" component="div">
-                            {item[0].name}
+                            {item.name}
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            {item[0].desc}
+                            {item.desc}
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button href={item[0].shopLink} size="small">{item[0].shop}</Button>
+                        <Button href={item.shopLink} size="small">{item.shop}</Button>
                     </CardActions>
                 </Card>
             </div>
