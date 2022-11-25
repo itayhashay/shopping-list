@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div className="App" >
         <Container>
-          <Typography variant='h1'>My Shopping List</Typography>
+          <Typography variant='h2'>My Shopping List</Typography>
           <Divider sx={{ my: 5 }} variant="middle" ></Divider>
           <Routes>
             <Route exact path='/' element={<List items={this.state.items} />} />

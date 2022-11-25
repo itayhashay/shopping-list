@@ -35,7 +35,7 @@ const Item = ({ items }) => {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button href={item.shopLink} size="small">{item.shop}</Button>
+                        <Button href={item.shopLink} variant="contained" size="medium">{item.shop}</Button>
                     </CardActions>
                 </Card>
             </div>
